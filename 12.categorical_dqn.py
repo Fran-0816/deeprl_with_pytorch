@@ -6,8 +6,8 @@ import gymnasium as gym
 import torch
 import torch.optim as optim
 
-from memory import ReplayMemory
 from env import CustomEnv
+from memory import ReplayMemory
 from network import CategoricalDQN
 from util import ScoreLogger, evaluate_policy, hard_update
 

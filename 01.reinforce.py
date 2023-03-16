@@ -5,9 +5,9 @@ import gymnasium as gym
 import torch
 import torch.optim as optim
 
-from network import SoftmaxPolicyNet
-from memory import TransitionMemory
 from env import CustomEnv
+from memory import TransitionMemory
+from network import SoftmaxPolicyNet
 from util import ScoreLogger
 
 

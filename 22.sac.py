@@ -8,9 +8,9 @@ import torch.nn.functional as F
 import torch.optim as optim
 from torch.distributions import Normal
 
-from network import GaussianPolicyNet, QFunctionNet
 from env import CustomEnv
 from memory import ReplayMemory
+from network import GaussianPolicyNet, QFunctionNet
 from util import ScoreLogger, evaluate_policy, soft_update, action_converter_for_pendulum, log_prob_of_squashed_action
 
 

@@ -6,8 +6,8 @@ import torch
 import torch.nn.functional as F
 import torch.optim as optim
 
-from memory import ReplayMemory
 from env import CustomEnv
+from memory import ReplayMemory
 from network import NoisyDQN
 from util import ScoreLogger, evaluate_policy, hard_update
 

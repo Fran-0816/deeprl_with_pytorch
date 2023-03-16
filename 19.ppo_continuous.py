@@ -7,9 +7,9 @@ import torch.nn.functional as F
 import torch.optim as optim
 from torch.distributions import Normal
 
-from network import GaussianPolicyNet, VFunctionNet
 from env import CustomEnv
 from memory import TransitionMemory
+from network import GaussianPolicyNet, VFunctionNet
 from util import ScoreLogger, evaluate_policy, action_converter_for_pendulum
 
 

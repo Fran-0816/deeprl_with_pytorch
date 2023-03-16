@@ -7,9 +7,9 @@ import torch
 import torch.nn.functional as F
 import torch.optim as optim
 
-from memory import ReplayMemory
 from env import CustomEnv
 from network import DQN
+from memory import ReplayMemory
 from util import ScoreLogger, evaluate_policy, hard_update
 
 

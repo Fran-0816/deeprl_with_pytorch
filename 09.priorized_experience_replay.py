@@ -7,9 +7,9 @@ import torch
 import torch.optim as optim
 
 from env import CustomEnv
+from memory import PriorizedReplayMemory
 from network import DQN
 from util import ScoreLogger, evaluate_policy, hard_update
-from memory import PriorizedReplayMemory
 
 
 class AgentConfig:

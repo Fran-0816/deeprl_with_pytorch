@@ -6,9 +6,9 @@ import torch
 import torch.nn.functional as F
 import torch.optim as optim
 
-from network import SoftmaxPolicyNet, VFunctionNet
 from env import CustomEnv
 from memory import TransitionMemory
+from network import SoftmaxPolicyNet, VFunctionNet
 from util import ScoreLogger, evaluate_policy
 
 

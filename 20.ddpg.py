@@ -6,9 +6,9 @@ import torch
 import torch.nn.functional as F
 import torch.optim as optim
 
-from network import DeterministicPolicyNet, QFunctionNet
 from env import CustomEnv
 from memory import ReplayMemory
+from network import DeterministicPolicyNet, QFunctionNet
 from util import ScoreLogger, evaluate_policy, soft_update, action_converter_for_pendulum, OUNoise
 
 
