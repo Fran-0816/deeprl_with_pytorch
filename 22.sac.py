@@ -51,13 +51,13 @@ class Agent(AgentConfig):
 
         self.action_converter = action_converter
 
+    @torch.no_grad()
     def get_action(self, state, explore=False):
-        with torch.no_grad():
-            mu, sigma = self.policy(state)
-            if not explore:
-                action = mu
-            pi = Normal(mu, sigma)
-            action = pi.sample()
+        mu, sigma = self.policy(state)
+        if not explore:
+            action = mu
+        pi = Normal(mu, sigma)
+        action = pi.sample()
 
         return self.action_converter(action)
 

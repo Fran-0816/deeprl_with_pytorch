@@ -36,15 +36,15 @@ class Agent(AgentConfig):
 
         self.action_converter = action_converter
 
+    @torch.no_grad()
     def get_action(self, state, convert_action=True, explore=False):
         action = None
-        with torch.no_grad():
-            mu, sigma = self.policy(state)
-            if not explore:
-                action = mu
-            else:
-                m = Normal(mu, sigma)
-                action = m.sample()
+        mu, sigma = self.policy(state)
+        if not explore:
+            action = mu
+        else:
+            m = Normal(mu, sigma)
+            action = m.sample()
 
         if convert_action:
             action = self.action_converter(action)

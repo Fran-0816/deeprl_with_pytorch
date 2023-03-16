@@ -46,14 +46,14 @@ class Agent(AgentConfig):
 
         self.memory = ReplayMemory(self.memory_size, self.batch_size)
 
+    @torch.no_grad()
     def get_action(self, state, explore=False):
-        with torch.no_grad():
-            action = self.policy(state)
-            if explore:
-                action = action + torch.randn(1) * self.sigma
-                action = torch.clip(action, -2, 2)
+        action = self.policy(state)
+        if explore:
+            action = action + torch.randn(1) * self.sigma
+            action = torch.clip(action, -2, 2)
 
-            return action
+        return action
 
     def update(self, update_policy):
         if len(self.memory) < self.min_num_experience:

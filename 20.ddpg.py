@@ -39,14 +39,14 @@ class Agent(AgentConfig):
 
         self.noise = OUNoise()
 
+    @torch.no_grad()
     def get_action(self, state, explore=False):
-        with torch.no_grad():
-            action = self.policy(state)
-            if explore:
-                action = action + self.noise.sample()
-                action = torch.clip(action, -2, 2)
+        action = self.policy(state)
+        if explore:
+            action = action + self.noise.sample()
+            action = torch.clip(action, -2, 2)
 
-            return action
+        return action
 
     def update(self):
         if len(self.experience) < self.min_num_experience:
