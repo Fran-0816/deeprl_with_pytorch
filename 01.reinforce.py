@@ -25,12 +25,11 @@ class Agent(AgentConfig):
         self.trajectory = TransitionMemory()
 
     def get_action(self, state, explore=False):
-        with torch.no_grad():
-            pi = self.policy(state)
-            if not explore:
-                return pi.argmax(dim=-1, keepdim=True)
-            action = pi.multinomial(1)
-            return action
+        pi = self.policy(state)
+        if not explore:
+            return pi.argmax(dim=-1, keepdim=True)
+        action = pi.multinomial(1)
+        return action
 
     def update(self):
         states, actions, rewards, _, _ = self.trajectory.get_batch()

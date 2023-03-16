@@ -39,10 +39,9 @@ class Agent(AgentConfig):
         if explore and random.random() < self.epsilon:
             return torch.tensor([random.randrange(self.action_size)])
         else:
-            with torch.no_grad():
-                qs = self.q(state)
-                action = qs.argmax(dim=-1, keepdim=True)
-                return action
+            qs = self.q(state)
+            action = qs.argmax(dim=-1, keepdim=True)
+            return action
 
     def update(self):
         if len(self.experience) < self.min_num_experience:

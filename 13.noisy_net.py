@@ -32,10 +32,9 @@ class Agent(AgentConfig):
         self.experience = ReplayMemory(self.memory_size, self.batch_size)
 
     def get_action(self, state, sample_noise=True):
-        with torch.no_grad():
-            qs = self.q(state, sample_noise)
-            action = qs.argmax(dim=-1, keepdim=True)
-            return action
+        qs = self.q(state, sample_noise)
+        action = qs.argmax(dim=-1, keepdim=True)
+        return action
 
     def update(self):
         if len(self.experience) < self.min_num_experience:

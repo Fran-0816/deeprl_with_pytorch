@@ -47,10 +47,9 @@ class Worker(WorkerConfig):
         return self.worker_id, self.compute_grad(trajectory)
 
     def get_action(self, state):
-        with torch.no_grad():
-            pi = self.local_model.pi(state)
-            action = pi.multinomial(1)
-            return action
+        pi = self.local_model.pi(state)
+        action = pi.multinomial(1)
+        return action
 
     def compute_grad(self, trajectory):
         states, actions, rewards, next_states, dones = trajectory.get_batch()
@@ -104,10 +103,9 @@ class Host(HostConfig):
         ])
 
     def get_action(self, state):
-        with torch.no_grad():
-            pi = self.global_model.pi(state)
-            action = pi.argmax(dim=-1, keepdim=True)
-            return action
+        pi = self.global_model.pi(state)
+        action = pi.argmax(dim=-1, keepdim=True)
+        return action
 
     def update(self, grads):
         self.optimizer.zero_grad()
