@@ -5,11 +5,6 @@ PyTorch による深層強化学習アルゴリズムの実装例
 分散学習には [Ray](https://www.ray.io/) を使用.  
 離散値制御は `CartPole-v1` 環境, 連続値制御は `Pendulum-v1` 環境で実施する.
 
-## 動作要件
-```
-Python 3.10.6
-```
-
 ## モジュール
 1. [`env`](https://github.com/Fran-0816/deeprl_with_pytorch/blob/main/env.py) : すべてのアルゴリズムで使う環境の定義
 2. [`memory`](https://github.com/Fran-0816/deeprl_with_pytorch/blob/main/memory.py) : 学習データ格納用のメモリ定義
