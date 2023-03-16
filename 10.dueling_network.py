@@ -35,7 +35,7 @@ class Agent(AgentConfig):
 
     def get_action(self, state, explore=False):
         if explore and random.random() < self.epsilon:
-            return torch.tensor([random.randrange(self.action_size)])
+            return torch.randint(0, self.action_size, size=(1,))
         else:
             qs = self.q(state)
             action = qs.argmax(dim=-1, keepdim=True)
