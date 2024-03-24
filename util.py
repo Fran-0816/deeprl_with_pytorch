@@ -1,5 +1,6 @@
 from typing import List, Tuple
 from collections import deque
+
 import numpy as np
 import matplotlib.pyplot as plt
 import torch
